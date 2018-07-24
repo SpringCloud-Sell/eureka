@@ -7,7 +7,7 @@
     <!--如果服务器运行在JDK1.6或更高版本，可以直接运行jconsole程序，然后连接到你的服务器的MBeanServer-->
     <jmxConfigurator/>
 
-    <property name="logDir" value="/home/saas/eureka/logs"/>
+    <property name="logDir" value="/home/saas/SpringCloud-Sell/eureka/logs/eureka1"/>
 
 
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
@@ -17,9 +17,9 @@
         </encoder>
     </appender>
 
-    <appender name="sell_monitor_exception" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <appender name="monitor_exception" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${logDir}/%d{yyyyMMdd}/sell_monitor_exception.%i.log</fileNamePattern>
+            <fileNamePattern>${logDir}/%d{yyyyMMdd}/monitor_exception.%i.log</fileNamePattern>
             <maxHistory>30</maxHistory>
             <timeBasedFileNamingAndTriggeringPolicy
                     class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
@@ -34,23 +34,9 @@
         </encoder>
     </appender>
 
-    <appender name="sell_desc_normal" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <appender name="desc_normal" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${logDir}/%d{yyyyMMdd}/sell_desc_normal.%i.log</fileNamePattern>
-            <maxHistory>30</maxHistory>
-            <timeBasedFileNamingAndTriggeringPolicy
-                    class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
-                <maxFileSize>20MB</maxFileSize>
-            </timeBasedFileNamingAndTriggeringPolicy>
-        </rollingPolicy>
-        <encoder>
-            <pattern>${FILE_LOG_PATTERN}</pattern>
-        </encoder>
-    </appender>
-
-    <appender name="sell_visit_login" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${logDir}/%d{yyyyMMdd}/sell_visit_login.%i.log</fileNamePattern>
+            <fileNamePattern>${logDir}/%d{yyyyMMdd}/desc_normal.%i.log</fileNamePattern>
             <maxHistory>30</maxHistory>
             <timeBasedFileNamingAndTriggeringPolicy
                     class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
@@ -75,7 +61,7 @@
     <!--sell-->
     <logger name="com.coding" level="INFO" additivity="true">
         <!--sell：异常-->
-        <appender-ref ref="sell_monitor_exception"/>
+        <appender-ref ref="monitor_exception"/>
     </logger>
 
     <!-- HttpClient日志 -->
@@ -85,7 +71,7 @@
     <root level="INFO">
         <appender-ref ref="CONSOLE"/>
         <!--自游港：所有日志-->
-        <appender-ref ref="sell_desc_normal"/>
+        <appender-ref ref="desc_normal"/>
     </root>
 
 </configuration>

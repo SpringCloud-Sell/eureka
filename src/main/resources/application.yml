@@ -11,3 +11,6 @@ spring:
     active: dev
 server:
   port: 8761
+
+logging:
+  config: classpath:logback-spring-${spring.profiles.active}.xml
