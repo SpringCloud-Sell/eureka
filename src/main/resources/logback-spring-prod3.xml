@@ -58,19 +58,12 @@
     具体生效文件，根据spring.profiles.active的配置而定。
     -->
 
-    <!--sell-->
     <logger name="com.coding" level="INFO" additivity="true">
-        <!--sell：异常-->
         <appender-ref ref="monitor_exception"/>
-    </logger>
-
-    <!-- HttpClient日志 -->
-    <logger name="org.apache.http" level="INFO" additivity="true">
     </logger>
 
     <root level="INFO">
         <appender-ref ref="CONSOLE"/>
-        <!--自游港：所有日志-->
         <appender-ref ref="desc_normal"/>
     </root>
 
